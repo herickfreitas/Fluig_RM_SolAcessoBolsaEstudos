@@ -1,0 +1,549 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="/webdesk/vcXMLRPC.js"></script>
+
+
+</head>
+
+<body>
+    <form name="FormSolAcessoBolsaEstudos" role="form">
+        <div class="fluig-style-guide">
+            <!-- Informação oculta por script INICIO -->
+            <div class="row form-group" id="dvCustomizada">
+                <input type='hidden' name="solicitante" id="solicitante" />
+                <input type='hidden' name="gestorcc" id="gestorcc" />
+                <input type='hidden' name="analistaGERH" id="analistaGERH" />
+            </div>
+            <!-- Informação oculta por script FIM -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>EMPREGADO </h2>
+                    <hr />
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblnome"><strong>Nome</strong></label>
+                            <input class="form-control" type="text" id="nomeEmpregado" name="nomeEmpregado" readonly />
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lbldataAdmissao"><strong>Data
+                                    admiss&atilde;o</strong></label>
+                            <input class="form-control" type="text" id="dataAdmissao" name="dataAdmissao" readonly />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label"
+                                id="lblfuncao"><strong>Fun&ccedil;&atilde;o/Cargo</strong></label>
+                            <input class="form-control" type="text" id="funcao" name="funcao" readonly />
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblLotacao"><strong>Lota&ccedil;&atilde;o</strong></label>
+                            <input class="form-control" type="text" id="lotacao" name="lotacao" readonly />
+                        </div>
+                    </div>
+                    <br>
+
+
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>BOLSA DE ESTUDOS</h2>
+                    <hr />
+                    <br>
+                    <form action="#">
+                        <div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-lg">
+                            <input type="radio" name="radioTipoBolsa" value="novaBolsa" id="radio-novaBolsa">
+                            <label for="radio-novaBolsa">Nova</label>
+                        </div>
+                        <div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-lg">
+                            <input type="radio" name="radioTipoBolsa" value="renovacaoBolsa" id="radio-renovacaoBolsa">
+                            <label for="radio-renovacaoBolsa">Renova&ccedil;&atilde;o</label>
+                        </div>
+                    </form>
+                    <br>
+                    <br>
+
+                    <form action="#">
+                        <div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-lg">
+                            <input type="radio" name="radioCurso" value="ensinoMedio" id="radio-ensinoMedio">
+                            <label for="radio-ensinoMedio">Ensino m&eacute;dio</label>
+                        </div>
+                        <div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-lg">
+                            <input type="radio" name="radioCurso" value="superior" id="radio-superior">
+                            <label for="radio-superior">Forma&ccedil;&atilde;o espec&iacute;fica</label>
+                        </div>
+                        <div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-lg">
+                            <input type="radio" name="radioCurso" value="graduacao" id="radio-graduacao">
+                            <label for="radio-graduacao">Gradua&ccedil;&atilde;o</label>
+                        </div>
+                        <div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-lg">
+                            <input type="radio" name="radioCurso" value="posGraduacao" id="radio-posGraduacao">
+                            <label for="radio-posGraduacao">P&oacute;s-gradua&ccedil;&atilde;o</label>
+                        </div>
+                    </form>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <label class="control-label" id="lblCurso"><strong>Nome do curso</strong></label>
+                            <input type="text" class="form-control" id="curso" name="curso" />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <label class="control-label" id="lblInstituicao"><strong>Institui&ccedil;&atilde;o de
+                                    ensino</strong></label>
+                            <input type="text" class="form-control" id="instituicao" name="instituicao" />
+                        </div>
+                    </div>
+                    <br>
+                    <form action="#">
+                        <div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-lg">
+                            <input type="radio" name="radioLocal" value="presencial" id="radio-presencial">
+                            <label for="radio-presencial">Presencial</label>
+                        </div>
+                        <div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-lg">
+                            <input type="radio" name="radioLocal" value="aDistancia" id="radio-aDistancia">
+                            <label for="radio-aDistancia">&Agrave; dist&acirc;ncia</label>
+                        </div>
+                    </form>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblhorarioEntrada"><strong>Hor&aacute;rio
+                                    entrada</strong></label>
+                            <input class="form-control" type="time" id="horarioEntrada" name="horarioEntrada" />
+                        </div>
+
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblhorarioSaida"><strong>Hor&aacute;rio
+                                    sa&iacute;da</strong></label>
+                            <input class="form-control" type="time" id="horarioSaida" name="horarioSaida" />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblduracaoCurso"><strong>Dura&ccedil;&atilde;o do
+                                    curso</strong></label>
+                            <input class="form-control" type="text" id="duracaoCurso" name="duracaoCurso">
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblperiodo"><strong>Per&iacute;odo a
+                                    cursar</strong></label>
+                            <input class="form-control" type="text" id="periodo" name="periodo" />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblinicioCurso"><strong>In&iacute;cio do
+                                    curso</strong></label>
+                            <input class="form-control" type="month" id="inicioCurso" name="inicioCurso">
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblterminoCurso"><strong>T&eacute;rmino do
+                                    curso</strong></label>
+                            <input class="form-control" type="month" id="terminoCurso" name="terminoCurso" />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblvalorMensalidade"><strong>Valor do curso / mensalidade
+                                    R$</strong></label>
+                            <input type="text" name="valorMensalidade" id="valorMensalidade" class="form-control"
+                                onkeypress="$(this).mask('###.###.##0,00', {reverse: true});">
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="control-label" id="lblhorarioEntrada"><strong>Quantidade de
+                                    parcelas</strong></label>
+                            <input class="form-control" type="number" id="qtdParcelas" name="qtdParcelas" />
+                        </div>
+                    </div>
+                    <br>
+
+                </div>
+            </div>
+
+
+            <div class="panel panel-default" id="dvJustificativa">
+                <div class="panel-body">
+                    <h2>JUSTIFICATIVA</h2>
+                    <hr />
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <label class="control-label" id="lblJustificativa"><strong>Justifique a necessidade da bolsa
+                                    de estudos</strong></label>
+                            <textarea class="form-control" rows="10" name="justificativa" id="justificativa"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default" id="dvClassificacao">
+                <div class="panel-body">
+                    <h2>CLASSIFICAÇÃO </h2>
+                    <hr />
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <label class="control-label" id="lblPeriodoInscricao"><strong>Selecione o período para
+                                    inscrição</strong></label>
+                            <input type="zoom" id="periodoInscricao" name="periodoInscricao" data-zoom="{
+                                'displayKey':'PERIODO',
+                                'datasetId':'_FLUIG_INSC_BOLSA_ESTUDOS',
+                                'maximumSelectionLength':'1',
+                                'fields':[
+                                    {
+                                      'field':'PERIODO',
+                                      'label':'Período inscrição',
+                                      'standard':'true'
+                                    }
+                                ]
+                            }" />
+                        </div>
+                    </div>
+                    <br>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Critério</th>
+                            <th>Resultado</th>
+                            <th>Pontos</th>
+                        </tr>
+                        <tr>
+                            <td>Tempo de casa em ano(s)?</td>
+                            <td><input class="form-control" type="text" id="tempoCasa" name="tempoCasa" readonly /></td>
+                            <td><input class="form-control" type="text" id="tempoCasaPonto" name="tempoCasaPonto"
+                                    readonly /></td>
+                        </tr>
+                        <tr>
+                            <td>Setor com pendência(s)?</td>
+                            <td>
+                                <form action="#">
+                                    <div class="custom-radio custom-radio-inline custom-radio-primary">
+                                        <input type="radio" name="radioSetorPedencias" value="sim"
+                                            id="radioSetorPedenciasSim">
+                                        <label for="radioSetorPedenciasSim">Sim</label>
+                                    </div>
+                                    <div class="custom-radio custom-radio-inline custom-radio-primary">
+                                        <input type="radio" name="radioSetorPedencias" value="nao"
+                                            id="radioSetorPedenciasNao">
+                                        <label for="radioSetorPedenciasNao">Não</label>
+                                    </div>
+                                </form>
+                            </td>
+                            <td><input class="form-control" type="text" id="setorPedenciasPonto"
+                                    name="setorPedenciasPonto" readonly /></td>
+                        </tr>
+                        <tr>
+                            <td>Setor com bolsista(s)?</td>
+                            <td><input class="form-control" type="number" id="setorBolsista" name="setorBolsista" />
+                            </td>
+                            <td><input class="form-control" type="text" id="setorBolsistaPonto"
+                                    name="setorBolsistaPonto" readonly /></td>
+                        </tr>
+                        <tr>
+                            <td>Já foi bolsista?</td>
+                            <td>
+                                <form action="#">
+                                    <div class="custom-radio custom-radio-inline custom-radio-primary">
+                                        <input type="radio" name="radioJaFoiBolsista" value="sim"
+                                            id="radioJaFoiBolsistaSim">
+                                        <label for="radioJaFoiBolsistaSim">Sim</label>
+                                    </div>
+                                    <div class="custom-radio custom-radio-inline custom-radio-primary">
+                                        <input type="radio" name="radioJaFoiBolsista" value="nao"
+                                            id="radioJaFoiBolsistaNao">
+                                        <label for="radioJaFoiBolsistaNao">Não</label>
+                                    </div>
+                                </form>
+                            </td>
+                            <td><input class="form-control" type="text" id="jaFoiBolsistaPonto"
+                                    name="jaFoiBolsistaPonto" readonly /></td>
+                        </tr>
+
+                        <tr>
+                            <td>Conteúdo relacionado com a função?</td>
+                            <td>
+                                <form action="#">
+                                    <div class="custom-radio custom-radio-inline custom-radio-primary">
+                                        <input type="radio" name="radioRelacionadoFuncao" value="sim"
+                                            id="radioRelacionadoFuncaoSim">
+                                        <label for="radioRelacionadoFuncaoSim">Sim</label>
+                                    </div>
+                                    <div class="custom-radio custom-radio-inline custom-radio-primary">
+                                        <input type="radio" name="radioRelacionadoFuncao" value="nao"
+                                            id="radioRelacionadoFuncaoNao">
+                                        <label for="radioRelacionadoFuncaoNao">Não</label>
+                                    </div>
+                                </form>
+                            </td>
+                            <td><input class="form-control" type="text" id="relacionadoFuncaoPonto"
+                                    name="relacionadoFuncaoPonto" readonly /></td>
+                        </tr>
+                        <tr>
+                            <td>Atende ao critério PCS escolaridade cargo?</td>
+                            <td>
+                                <form action="#">
+                                    <div class="custom-radio custom-radio-inline custom-radio-primary">
+                                        <input type="radio" name="radioEscolaridadeCargo" value="sim"
+                                            id="radioEscolaridadeCargoSim">
+                                        <label for="radioEscolaridadeCargoSim">Sim</label>
+                                    </div>
+                                    <div class="custom-radio custom-radio-inline custom-radio-primary">
+                                        <input type="radio" name="radioEscolaridadeCargo" value="nao"
+                                            id="radioEscolaridadeCargoNao">
+                                        <label for="radioEscolaridadeCargoNao">Não</label>
+                                    </div>
+                                </form>
+                            </td>
+                            <td><input class="form-control" type="text" id="escolaridadeCargoPonto"
+                                    name="escolaridadeCargoPonto" readonly /></td>
+                        </tr>
+                        <tr>
+                            <td>Valor da bolsa?</td>
+                            <td><input type="text" name="valorBolsa" id="valorBolsa" class="form-control"
+                                    onkeypress="$(this).mask('###.###.##0,00', {reverse: true});"></td>
+                            <td><input class="form-control" type="text" id="valorBolsaPonto" name="valorBolsaPonto"
+                                    readonly /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button type="button" id="btnClassificacao" name="btnClassificacao"
+                                    onclick="processarClassificacao();" class="btn btn-primary">Totalizar
+                                    classificação</button></td>
+                            <td><input class="form-control" type="text" id="resultadoClassificacao"
+                                    name="resultadoClassificacao" readonly /></td>
+                        </tr>
+
+                    </table>
+
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+    <!--
+PONTUAÇÕES PARA CONCESSÃO DE BOLSA DE ESTUDOS (CLASSIFICAÇÃO)
+ 
+CRITÉRIO	                        PONTOS
+Tempo de Casa	
+1 - 2 anos	                            1
+3 - 5 anos                          	2
+6 a 10 anos	                            3
+11 anos a mais	                        4
+Setor com pendência	                    1
+Setor sem pendência	                    3
+Setor com bolsista	
+0	                                    4
+1	                                    3
+2	                                    2
+3	                                    1
+Já foi bolsista?	
+SIM                                 	1
+NÃO	                                    3
+Conteúdo relaciobado com a função	    
+SIM	                                    1
+NÃO	                                    0
+Atende ao critério PCS escolaridade cargo	    
+SIM	                                    1
+NÃO	                                    3
+Valor da bolsa	    
+R$ 1.000 a R$ 3.000	                    7
+R$ 3.001 a R$ 6.000	                    6
+R$ 6.001 a R$ 10.000	                5
+R$ 10.001 a R$ 20.000	                4
+R$ 20.001 a R$ 30.000	                3
+R$ 30.0001 a R$ 60.000	                2
+Acima de R$ 60.000	                    1
+------------------------------------------
+Valor Total  Máximo                 	25
+Valor Mínimo	                        6
+-->
+
+    <script>
+        // carrega o form com um timeout  
+        $(document).ready(function () {
+            setTimeout(function () {
+                LoadForm();
+                $('#loading').hide();
+            }, 500);
+        });
+
+        function LoadForm() {
+            try {
+
+                var onlyTime = FLUIGC.calendar('#MY_SELECTOR', {
+                    pickDate: false,
+                    pickTime: true
+                });
+
+                // Coletando hostname
+                //var string_hostname = window.location.hostname;
+                //$("#hostname").val(string_hostname);
+
+            } catch (e) {
+                $('#error').show();
+                $('#error').html("Erro: " + e.message);
+            }
+        }
+
+        function processarClassificacao() {
+
+            var falhasPreenchimento = false;
+
+            //Setor com pendências?
+            var radioSetorPedenciasSim = document.getElementById("radioSetorPedenciasSim").checked;
+            var radioSetorPedenciasNao = document.getElementById("radioSetorPedenciasNao").checked;
+            if (radioSetorPedenciasNao == false && radioSetorPedenciasSim == false) {
+                alert('Setor com pendências tem seleção obrigatória!')
+                falhasPreenchimento = true;
+            }
+            else if (radioSetorPedenciasSim) {
+                $("#setorPedenciasPonto").val('1');
+            }
+            else if (radioSetorPedenciasNao) {
+                $("#setorPedenciasPonto").val('3');
+            }
+
+            //Setor com bolsista?
+            var setorBolsista = document.getElementById("setorBolsista").value;
+            if (setorBolsista == '') {
+                alert('Setor com bolsista tem preechimento obrigatório!')
+                falhasPreenchimento = true;
+            }
+            else if (setorBolsista < 0) {
+                alert('Setor com bolsista não pode ser número negativo!')
+                falhasPreenchimento = true;
+            }
+            else if (setorBolsista > 2) {
+                $("#setorBolsistaPonto").val('1');
+            }
+            else if (setorBolsista > 1) {
+                $("#setorBolsistaPonto").val('2');
+            }
+            else if (setorBolsista > 0) {
+                $("#setorBolsistaPonto").val('3');
+            }
+            else {
+                $("#setorBolsistaPonto").val('4');
+            }
+
+            //Já foi bolsista?
+            var radioJaFoiBolsistaSim = document.getElementById("radioJaFoiBolsistaSim").checked;
+            var radioJaFoiBolsistaNao = document.getElementById("radioJaFoiBolsistaNao").checked;
+            if (radioJaFoiBolsistaNao == false && radioJaFoiBolsistaSim == false) {
+                alert('Já foi bolsista tem seleção obrigatória!')
+                falhasPreenchimento = true;
+            }
+            else if (radioJaFoiBolsistaSim) {
+                $("#jaFoiBolsistaPonto").val('1');
+            }
+            else if (radioJaFoiBolsistaNao) {
+                $("#jaFoiBolsistaPonto").val('3');
+            }
+
+            //Conteúdo relacionado com a função?
+            var radioRelacionadoFuncaoSim = document.getElementById("radioRelacionadoFuncaoSim").checked;
+            var radioRelacionadoFuncaoNao = document.getElementById("radioRelacionadoFuncaoNao").checked;
+            if (radioRelacionadoFuncaoNao == false && radioRelacionadoFuncaoSim == false) {
+                alert('Conteúdo relacionado com a função tem seleção obrigatória!')
+                falhasPreenchimento = true;
+            }
+            else if (radioRelacionadoFuncaoSim) {
+                $("#relacionadoFuncaoPonto").val('1');
+            }
+            else if (radioRelacionadoFuncaoNao) {
+                $("#relacionadoFuncaoPonto").val('0');
+            }
+
+            //Atende ao critério PCS escolaridade cargo?
+            var radioEscolaridadeCargoSim = document.getElementById("radioEscolaridadeCargoSim").checked;
+            var radioEscolaridadeCargoNao = document.getElementById("radioEscolaridadeCargoNao").checked;
+            if (radioEscolaridadeCargoNao == false && radioEscolaridadeCargoSim == false) {
+                alert('Atende ao critério PCS escolaridade cargo tem seleção obrigatória!')
+                falhasPreenchimento = true;
+            }
+            else if (radioEscolaridadeCargoSim) {
+                $("#escolaridadeCargoPonto").val('1');
+            }
+            else if (radioEscolaridadeCargoNao) {
+                $("#escolaridadeCargoPonto").val('3');
+            }
+
+
+            //Valor da bolsa?
+            var valorBolsa = document.getElementById("valorBolsa").value;
+            if (valorBolsa == '') {
+                alert('Valor da bolsa possui preenhcimento obigatório!')
+                falhasPreenchimento = true;
+            }
+            else if (valorBolsa != '') {
+                //valorBolsa = valorBolsa.replace('.','').replace(',','.'); // Tratando 
+                valorBolsa = parseFloat(valorBolsa);
+
+                if (valorBolsa < parseFloat('3001')) {
+                    $("#valorBolsaPonto").val('7');
+                }
+                else if (valorBolsa < parseFloat('6001')) {
+                    $("#valorBolsaPonto").val('6');
+                }
+                else if (valorBolsa < parseFloat('10001')) {
+                    $("#valorBolsaPonto").val('5');
+                }
+                else if (valorBolsa < parseFloat('20001')) {
+                    $("#valorBolsaPonto").val('4');
+                }
+                else if (valorBolsa < parseFloat('30001')) {
+                    $("#valorBolsaPonto").val('3');
+                }
+                else if (valorBolsa < parseFloat('60000')) {
+                    $("#valorBolsaPonto").val('2');
+                }
+                else {
+                    $("#valorBolsaPonto").val('1');
+                }
+            }
+
+            //Total classificacao
+            if (!falhasPreenchimento) {
+                var tempoCasaPonto = document.getElementById("tempoCasaPonto").value;
+                var setorPedenciasPonto = document.getElementById("setorPedenciasPonto").value;
+                var setorBolsistaPonto = document.getElementById("setorBolsistaPonto").value;
+                var jaFoiBolsistaPonto = document.getElementById("jaFoiBolsistaPonto").value;
+                var relacionadoFuncaoPonto = document.getElementById("relacionadoFuncaoPonto").value;
+                var escolaridadeCargoPonto = document.getElementById("escolaridadeCargoPonto").value;
+                var valorBolsaPonto = document.getElementById("valorBolsaPonto").value;
+
+                var resultadoClassificacao = parseInt(tempoCasaPonto) + parseInt(setorPedenciasPonto) + parseInt(setorBolsistaPonto) + parseInt(jaFoiBolsistaPonto) + parseInt(relacionadoFuncaoPonto) + parseInt(escolaridadeCargoPonto) + parseInt(valorBolsaPonto);
+
+                $("#resultadoClassificacao").val(resultadoClassificacao);
+
+            }
+
+        }
+
+
+    </script>
+
+    </form>
+    </div>
+</body>
+
+</html>
